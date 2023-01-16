@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp_fln/destination_screen.dart';
+import 'package:test_notification/destination_screen.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -17,7 +17,6 @@ class _MyHomePageState extends State<MyHomePage> {
   showSimpleNotification() async {
     var androidDetails = const AndroidNotificationDetails('id', 'channel ',
         priority: Priority.high, importance: Importance.max);
-    // const IOSNotificationDetails iOSDetails = IOSNotificationDetails();
     var platformDetails = NotificationDetails(android: androidDetails);
     await flutterLocalNotificationsPlugin.show(
         0, 'Flutter Local Notification', 'Flutter Simple Notification', platformDetails,
@@ -27,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    var androidSettings = const AndroidInitializationSettings('@mipmap/ic_launcher');
+    var androidSettings = const AndroidInitializationSettings('@mipmap/launcher_icon');
 
     var initSetttings = InitializationSettings(android: androidSettings);
     flutterLocalNotificationsPlugin.initialize(initSetttings);
